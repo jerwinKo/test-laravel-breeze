@@ -8,9 +8,11 @@
             <div class="mb-4">
                 @include('profile.partials.update-profile-information-form')
             </div>
-            <div class="mb-4">
-                @include('profile.partials.update-password-form')
-            </div>
+            @if(Auth::check() && Auth::id() === $user->id)
+                <div class="mb-4">
+                    @include('profile.partials.update-password-form')
+                </div>
+            @endif
             <div>
                 @include('profile.partials.delete-user-form')
             </div>
